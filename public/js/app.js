@@ -6,7 +6,8 @@ const mssg2=document.querySelector('#mssg2')
 
 form.addEventListener('submit',(e)=>{
     e.preventDefault()
-    console.log(search.value)
+    mssg1='Loading ...'
+    mssg2=''
     fetch('/weather?address='+search.value).then((response)=>{
     
     response.json().then((data)=>{
