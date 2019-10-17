@@ -4,9 +4,10 @@ const express=require('express')
 const path=require('path')
 const hbs=require('hbs')
 const app=express()
-const commonpath=path.join(__dirname)
-const viewspath=path.join(__dirname,'template/views')
-const partialspath=path.join(__dirname,'template/partials')
+const commonpath=path.join(__dirname,'../public')
+const viewspath=path.join(__dirname,'../template/views')
+const partialspath=path.join(__dirname,'../template/partials')
+const port=process.env.PORT ||3000
 
 app.set('view engine','hbs')
 app.set('views',viewspath)
@@ -54,6 +55,7 @@ app.get('/weather',(req,res)=>{
 app.get('/help',(req,res)=>{
     res.render('help',{
         title: 'Weather',
+        helpmessage:'please click the above options',
         name: 'sudhanshu'
     })
 })
@@ -78,7 +80,7 @@ app.get('*',(req,res)=>{
         
     })
 })
-app.listen(3000, ()=>{
-    console.log("kdfdkmfka")
+app.listen(port, ()=>{
+    console.log("server is up on "+port)
 
 })
