@@ -11,8 +11,8 @@ const forecast=(lat,long,callback)=>{
         callback('enter prpoerly',undefined)
         }
         else
-        {
-            callback(undefined,'It is '+body.currently.summary+' throughout the day.It is currently '+body.currently.temperature+' degrees out.There is '+body.currently.humidity*100+'% chance of rain')
+        { 
+            callback(undefined,'It is '+body.daily.data[0].summary+'.It is currently '+body.currently.temperature*.27+' degrees out.The highest temperature is '+body.daily.data[0].temperatureHigh*.27+' for the day and the lowest temperature is'+body.daily.data[0].temperatureLow*.27+' for the day.There is '+body.currently.humidity*100+'% chance of rain')
         }
 
     })
